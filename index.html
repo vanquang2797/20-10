@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-    <title>Chúc mừng 20/10 thật là vui vẻ</title>
+    <title>Chúc eiuuu 20/10 thật là vui vẻ</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
     <style>
@@ -200,6 +200,15 @@
             animation: heartFall 5s linear infinite;
             opacity: 0;
             z-index: 2;
+            pointer-events: none;
+        }
+
+        .falling-heart-gift {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: heartFall 5s linear infinite;
+            opacity: 0;
+            z-index: 201;
             pointer-events: none;
         }
 
@@ -552,6 +561,7 @@
             transform: scale(0.95);
         }
 
+        /* Gift Overlay với Video */
         #giftOverlay {
             position: fixed;
             inset: 0;
@@ -572,6 +582,8 @@
         .gift-image-wrapper {
             text-align: center;
             animation: zoomIn 1s ease;
+            position: relative;
+            z-index: 202;
         }
 
         @keyframes zoomIn {
@@ -579,9 +591,9 @@
             to { transform: scale(1); opacity: 1; }
         }
 
-        .gift-main-image {
-            max-width: min(500px, 80vw);
-            max-height: 60vh;
+        .gift-video {
+            width: min(500px, 80vw);
+            height: min(300px, 45vh);
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(255, 20, 147, 0.3);
             border: 5px solid #fff;
@@ -663,6 +675,11 @@
                 width: 42px;
                 height: 36px;
             }
+
+            .gift-video {
+                width: 90vw;
+                height: 50vh;
+            }
         }
 
         @media (max-width: 480px) {
@@ -675,10 +692,6 @@
                 width: 210px;
                 height: 130px;
                 font-size: 18px;
-            }
-
-            .gift-main-image {
-                max-width: 90vw;
             }
 
             .rose-branch {
@@ -708,6 +721,11 @@
             .rose-petal-4 {
                 width: 36px;
                 height: 32px;
+            }
+
+            .gift-video {
+                width: 95vw;
+                height: 40vh;
             }
         }
 
@@ -773,11 +791,16 @@
         </div>
     </div>
 
+    <!-- ĐÃ THAY THẾ BẰNG VIDEO -->
     <div id="giftOverlay">
         <div class="gift-image-wrapper">
-            <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&q=80" 
-                 alt="Món quà đặc biệt" 
-                 class="gift-main-image">
+            <iframe 
+                class="gift-video"
+                src="https://drive.google.com/file/d/1tcCxD562qoQgf1utMn-6T8agGBbz7NR7/preview"
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen>
+            </iframe>
             <div class="gift-caption" id="giftCaption"></div>
         </div>
     </div>
@@ -789,12 +812,12 @@
     <script>
         const config = {
             letterTitle: 'Chúc mừng Ngày Phụ nữ Việt Nam 20/10!',
-            letterContent: 'Gửi đến những người phụ nữ tuyệt vời nhất trong cuộc đời tôi.\n\nCảm ơn các bạn đã luôn là nguồn động viên, là điểm tựa vững chắc và là niềm vui trong cuộc sống của tôi. Các bạn không chỉ là những người phụ nữ tài năng, xinh đẹp mà còn là những tấm gương về lòng kiên nhẫn, sự dịu dàng và tình yêu thương vô bờ bến.\n\nChúc các bạn luôn tươi trẻ, rạng rỡ, hạnh phúc và thành công trong mọi lĩnh vực. Mong rằng mỗi ngày của các bạn đều tràn đầy niềm vui, tiếng cười và những điều tốt đẹp nhất.\n\nYêu thương các bạn rất nhiều! 💕',
-            letterSignature: 'Với tất cả tình yêu thương ❤️',
-            giftCaption: 'Món quà nhỏ dành tặng những người phụ nữ tuyệt vời! 🌹💐'
+            letterContent: 'Nhân ngày 20/10 chúc em luôn luôn nhiều niềm vui và sức khỏe.\n\nCảm ơn em vì đã luôn là người động viên, mang cho anh những niềm vui, hạnh phúc trong cuộc sống của anh. Anh mong em sẽ luôn luôn hạnh phúc với những gì mình đang có, sẽ luôn hạnh phúc với những gì em đã chọn.\n\nChúng mình tình cờ may mắn gặp nhau, nương tựa vào nhau, anh chẳng thể tin anh lại gặp được một người dthw như em, tinh tế và yêu thương anh. Anh mong cuộc sống của em sẽ luôn tràn đầy niềm vui, tiếng cười và những điều tốt đẹp nhất.\n\nMong e sẽ luôn quan tâm và yêu thương anh hihi! 💕',
+            letterSignature: 'iuu em nhiu lam❤️',
+            giftCaption: 'Cam on em vi da chon o ben anh, love you! 🌹💐'
         };
 
-        // Tạo trái tim rơi ngay khi trang load
+        // Tạo trái tim rơi cho phần chính
         function createFallingHearts() {
             const hearts = ['💝', '💓', '💗', '💖', '💕', '❤️'];
             setInterval(() => {
@@ -808,6 +831,22 @@
                 document.body.appendChild(heart);
                 setTimeout(() => heart.remove(), 7000);
             }, 800);
+        }
+
+        // Tạo trái tim rơi cho phần gift overlay
+        function createGiftFallingHearts() {
+            const hearts = ['💝', '💓', '💗', '💖', '💕', '❤️', '💘', '💞'];
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'falling-heart-gift';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                heart.style.animationDelay = Math.random() * 0.5 + 's';
+                heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+                document.getElementById('giftOverlay').appendChild(heart);
+                setTimeout(() => heart.remove(), 7000);
+            }, 500); // Tạo nhiều trái tim hơn
         }
 
         // Tạo hoa nở xung quanh
@@ -919,6 +958,9 @@
             
             const overlay = document.getElementById('giftOverlay');
             overlay.classList.add('show');
+            
+            // Bắt đầu tạo trái tim rơi trong gift overlay
+            createGiftFallingHearts();
             
             setTimeout(() => {
                 typeText('giftCaption', config.giftCaption, 60);
